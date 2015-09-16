@@ -12,4 +12,4 @@ fi
 [ -n "$TS_TASK_END" ] && ts_params=${ts_params}" -e $TS_TASK_END"
 [ -n "$TS_TASK_INTERVAL" ] && ts_params=${ts_params}" -i $TS_TASK_INTERVAL"
 #echo $ts_params
-python spider.py ${ts_params}
+python src/spider.py ${ts_params}

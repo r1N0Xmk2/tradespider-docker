@@ -19,7 +19,8 @@ tradespider-client:
   external_links:
     - captchaServer
   volumes:
-    - ../tradespider/client/src:/myapp:rw
+    - ../tradespider/client/src:/myapp/src:ro
+    - /var/log/tradespider:myapp/log:rw
     - ./client-start.sh:/myapp/client-start.sh:rw
   working_dir: /myapp
   command: sh client-start.sh
