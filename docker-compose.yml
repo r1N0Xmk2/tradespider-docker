@@ -1,0 +1,24 @@
+captchaServer:
+  container_name: captchaServer
+  image: node:0.10
+  restart: always
+  privileged: true
+  ports:
+    - "20002:20002"
+  volumes:
+    - ../glassesbag/CaptchaServer:/myapp:ro
+  working_dir: /myapp
+  command: node app.js
+tradespider-client:
+  container_name: tradespider-client
+  image: r1n0xmk2/tradespider
+  restart: always
+  privileged: true
+  env_file:
+    - ./ts-client.env 
+  external_links:
+    - captchaServer
+  volumes:
+    - ./client/src:/myapp:rw
+  working_dir: /myapp
+  command: sh client-start.sh
