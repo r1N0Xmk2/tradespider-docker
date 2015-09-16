@@ -13,4 +13,3 @@ fi
 [ -n "$TS_TASK_INTERVAL" ] && ts_params=${ts_params}" -i $TS_TASK_INTERVAL"
 #echo $ts_params
 python spider.py ${ts_params}
-# python spider.py -a spider7@tradesparq.com -p trade11235 -t pse -n 10

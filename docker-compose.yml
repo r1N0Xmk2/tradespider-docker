@@ -11,7 +11,7 @@ captchaServer:
   command: node app.js
 tradespider-client:
   container_name: tradespider-client
-  image: r1n0xmk2/tradespider
+  image: r1n0xmk2/tradespider-docker
   restart: always
   privileged: true
   env_file:
@@ -19,6 +19,7 @@ tradespider-client:
   external_links:
     - captchaServer
   volumes:
-    - ./client/src:/myapp:rw
+    - ../tradespider/client/src:/myapp:rw
+    - ./client-start.sh:/myapp/client-start.sh:rw
   working_dir: /myapp
   command: sh client-start.sh
