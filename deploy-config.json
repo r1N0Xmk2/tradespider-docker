@@ -7,7 +7,7 @@
       "user": "r1N0Xmk2",
       "name": "tradespider-docker",
       "labels": "deploy",
-      "command": "cd ~/workspace/tradespider-docker && git pull origin docker && sh delply-spider.sh",
+      "command": "git pull origin master && ./deploy-spider.sh",
       "confirm": null
     }
   ]
