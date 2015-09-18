@@ -2,33 +2,21 @@
 >docker environment for tradespider
 
 -------
->need install `git`, `docker`, `docker-compose`
+>need install `node`, `git`, `docker`, `docker-compose`
 
 ###1.  clone tradespider
 main program
 ```
-git clone git@github.com:r1N0Xmk2/tradespider.git
-cd tradespider
-git checkout docker
+git clone git@github.com:r1N0Xmk2/tradespider.git -b docker
 cd ..
 ```
 ###2. clone glassesbag for google captcha auth
 service for auth google captcha
 ```
-git clone git@github.com:Tradesparq/glassesbag.git
-cd glassesbag
-git checkout pg
-```
+git clone git@github.com:Tradesparq/glassesbag.git -b pg
+cd glassesbag/CaptchaServer
 npm install
-```
-docker run --rm --name="npm" -it \
--v "$(pwd)"/CaptchaServer/:/myapp \
--w /myapp node:0.10 \
-npm install
-```
-
-```
-cd ../tradespider-docker
+cd ../../tradespider-docker
 ```
 
 ###3.  set tradespider config and run container
@@ -41,3 +29,15 @@ start docker container
 docker-compose up -d
 
 ```
+
+###4. set auto deploy
+```
+npm i -g deploy-robot
+
+```
+edit tradespider-docker/deploy-config.json
+
+```
+deploy-robot -c deploy-config.json
+```
+
