@@ -15,6 +15,7 @@ service for auth google captcha
 ```
 git clone git@github.com:Tradesparq/glassesbag.git -b pg
 cd glassesbag/CaptchaServer
+git remote rename origin central
 npm install
 cd ../../tradespider-docker
 ```
